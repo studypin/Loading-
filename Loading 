@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pin - Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Study Pin Animation */
+        .study-pin-container {
+            position: relative;
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: flex;
+            gap: 5px;
+        }
+        .study-pin-container span {
+            display: inline-block;
+            transform: translateY(100px);
+            opacity: 0;
+            animation: floatLetters 1s forwards;
+        }
+        @keyframes floatLetters {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .study-pin-container span:nth-child(1) { animation-delay: 0.1s; }
+        .study-pin-container span:nth-child(2) { animation-delay: 0.2s; }
+        .study-pin-container span:nth-child(3) { animation-delay: 0.3s; }
+        .study-pin-container span:nth-child(4) { animation-delay: 0.4s; }
+        .study-pin-container span:nth-child(5) { animation-delay: 0.5s; }
+        .study-pin-container span:nth-child(6) { animation-delay: 0.6s; }
+        .study-pin-container span:nth-child(7) { animation-delay: 0.7s; }
+        .study-pin-container span:nth-child(8) { animation-delay: 0.8s; }
+        .study-pin-container span:nth-child(9) { animation-delay: 0.9s; }
+
+        /* Dot Loading Animation */
+        .loading-dots {
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: dotsAnimation 1.5s infinite ease-in-out;
+        }
+        .dot:nth-child(1) { animation-delay: 0s; }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotsAnimation {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-10px); opacity: 0.5; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Enter Button (Hidden Initially) */
+        .enter-btn {
+            display: none;
+            background: #00ff00;
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease, transform 0.5s ease;
+        }
+        .enter-btn.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .enter-btn:hover {
+            background: #00cc00;
+        }
+
+        /* Made by Adarsh Kumar Singh */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 16px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Study Pin Animated Text -->
+    <div class="study-pin-container">
+        <span>S</span><span>T</span><span>U</span><span>D</span><span>Y</span>
+        <span>P</span><span>I</span><span>N</span>
+    </div>
+
+    <!-- Loading Dots -->
+    <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Enter Button (Hidden Initially) -->
+    <button class="enter-btn" id="enterBtn" onclick="startLoading()">ENTER</button>
+
+    <!-- Footer -->
+    <div class="footer">
+        <i class="fas fa-code"></i> Made by Adarsh Kumar Singh
+    </div>
+
+    <script>
+        // Show ENTER button after 5 seconds
+        setTimeout(() => {
+            document.querySelector(".loading-dots").style.display = "none";
+            document.getElementById("enterBtn").classList.add("show");
+        }, 5000);
+
+        // ENTER button loading animation
+        function startLoading() {
+            document.getElementById("enterBtn").disabled = true;
+            document.getElementById("enterBtn").innerText = "Loading...";
+
+            setTimeout(() => {
+                window.location.href = "https://studypin.github.io/Official_studypin/";
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>
